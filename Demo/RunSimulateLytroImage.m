@@ -73,10 +73,10 @@ function InfoBag = SetConfiguration(FilePath_Raw)
     
     
 % Set the intrinsic parameters
-    InfoBag.pixelY              = 100;   %2000;    % control the pixel size of sensor.
-    InfoBag.pixelX              = 100;   %3000;
+    InfoBag.pixelY              = 200; %100;   %2000;    % control the pixel size of sensor.
+    InfoBag.pixelX              = 200; %100;   %3000;
     InfoBag.sxy                 = 0.0055;                 % 传感器像素大小
-    InfoBag.F                   = 100;%35;                    % 主镜头焦距。
+    InfoBag.F                   = 100;                    % 主镜头焦距。
     InfoBag.B                   = 2;                   % MLA到传感器的距离。
     InfoBag.fm1                 = 2;                  % 微透镜焦距1  
     InfoBag.fm2                 = 2;                  % 微透镜焦距2
@@ -85,8 +85,8 @@ function InfoBag = SetConfiguration(FilePath_Raw)
     InfoBag.k1                  = 6;
     InfoBag.k2                  = 5;
     InfoBag.bL0                 = InfoBag.F * WorkDistance / ( WorkDistance-InfoBag.F )-FocusedVdValue*InfoBag.B;                    % MLA到主镜头距离
-    InfoBag.DL                  = InfoBag.bL0/( InfoBag.B/(InfoBag.Dmi*InfoBag.sxy) )-3;  % 主镜头口径。 通过f数进行计算。!!!!!!!!!!
-    
+    InfoBag.DL                  = InfoBag.bL0/( InfoBag.B/(InfoBag.Dmi*InfoBag.sxy) )-0.8;  % 主镜头口径。 通过f数进行计算。!!!!!!!!!!
+    %InfoBag.DL                  = InfoBag.bL0/( InfoBag.B/(InfoBag.Dmi*InfoBag.sxy) );
 % Calculate the rest of parameters
     InfoBag.Dml                 = InfoBag.Dmi*InfoBag.bL0/(InfoBag.bL0+InfoBag.B);  % The diameter of the micro-lenses.
     Lm                          = -InfoBag.bL0;
@@ -104,7 +104,7 @@ function InfoBag = SetConfiguration(FilePath_Raw)
     InfoBag.GapDistance         = [10,10];
     %InfoBag.cornersNum          = [12,8]; % horizontal, vertical 
     %InfoBag.GapDistance         = [10,10];  % the distance gap between two corners.
-    InfoBag.GapPixel            = 200;      % the pixel number between two corners. 要找到一个保证质量但同时尽可能减小开销的gappixel。
+    InfoBag.GapPixel            = 200;%200;      % the pixel number between two corners. 要找到一个保证质量但同时尽可能减小开销的gappixel。
     InfoBag.DataPath            = FilePath_Raw;
 end
 
